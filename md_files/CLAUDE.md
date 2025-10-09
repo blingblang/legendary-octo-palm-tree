@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository demonstrates building agents using LangGraph, focusing on an email assistant that can:
+This repository demonstrates building agents using LangGraph, focusing on an email assistant that
+can:
+
 - Triage incoming emails
 - Draft appropriate responses
 - Execute actions (calendar scheduling, etc.)
@@ -11,7 +13,7 @@ This repository demonstrates building agents using LangGraph, focusing on an ema
 
 ## Environment Setup
 
-**Recommended: Using uv (faster and more reliable)**
+### Recommended: Using uv (faster and more reliable)
 
 ```bash
 # Install uv if you haven't already
@@ -21,7 +23,7 @@ pip install uv
 uv sync --extra dev
 ```
 
-**Alternative: Using pip**
+### Alternative: Using pip
 
 ```bash
 # Create and activate a virtual environment
@@ -35,21 +37,22 @@ python3 -m pip install --upgrade pip
 pip install -e .
 ```
 
-The package is installed as `interrupt_workshop` with import name `email_assistant`, allowing you to import from anywhere with `from email_assistant import ...`
+The package is installed as `interrupt_workshop` with import name `email_assistant`, allowing you to
+import from anywhere with `from email_assistant import ...`
 
 ## Agent Implementations
 
-### Scripts 
+### Scripts
 
 The repository contains several implementations with increasing complexity in `src/email_assistant`:
 
 1. **LangGraph 101** (`langgraph_101.py`)
-   - Basics of LangGraph 
+   - Basics of LangGraph
 
 2. **Basic Email Assistant** (`email_assistant.py`)
    - Core email triage and response functionality
 
-3. **Human-in-the-Loop** (`email_assistant_hitl.py`) 
+3. **Human-in-the-Loop** (`email_assistant_hitl.py`)
    - Adds ability for humans to review and approve actions
 
 4. **Memory-Enabled HITL** (`email_assistant_hitl_memory.py`)
@@ -61,6 +64,7 @@ The repository contains several implementations with increasing complexity in `s
 ### Notebooks
 
 Each aspect of the agent is explained in dedicated notebooks:
+
 - `notebooks/langgraph_101.ipynb` - LangGraph basics
 - `notebooks/agent.ipynb` - Basic agent implementation
 - `notebooks/evaluation.ipynb` - Agent evaluation
@@ -78,7 +82,8 @@ Test to ensure all implementations work:
 python tests/run_all_tests.py --all
 ```
 
-(Note: This will leave out the Gmail implementation `email_assistant_hitl_memory_gmail` from testing.)
+(Note: This will leave out the Gmail implementation `email_assistant_hitl_memory_gmail` from
+testing.)
 
 ### Testing Notebooks
 
@@ -95,7 +100,8 @@ python tests/test_notebooks.py
 
 ReadMeReady requires the following environment variables:
 
-- **`OPENAI_API_KEY`**: Set to `dummy` to use open-source models, or provide a valid OpenAI API key for GPT-based generation
+- **`OPENAI_API_KEY`**: Set to `dummy` to use open-source models, or provide a valid OpenAI API key
+  for GPT-based generation
 - **`HF_TOKEN`** (optional): Hugging Face token for accessing models hosted on Hugging Face Hub
 
 ### Installation
@@ -121,14 +127,17 @@ OPENAI_API_KEY=dummy python -m readme_ready
 ```
 
 When prompted:
+
 1. Select "Readme" mode
 2. Enter the repository root path
 3. Specify output path as `docs/README.ReadMeReady.md`
 
 ### Workflow Guidelines
 
-1. **When to regenerate**: Run ReadMeReady when significant structural changes are made to the codebase
-2. **Review output**: Always review the generated markdown before incorporating into official documentation
-3. **Preserve customizations**: The generated README is a draft - merge relevant sections into existing docs rather than replacing them entirely
+1. **When to regenerate**: Run ReadMeReady when significant structural changes are made to the
+   codebase
+2. **Review output**: Always review the generated markdown before incorporating into official
+   documentation
+3. **Preserve customizations**: The generated README is a draft - merge relevant sections into
+   existing docs rather than replacing them entirely
 4. **Ignore patterns**: The tool respects `.gitignore` patterns by default
-
